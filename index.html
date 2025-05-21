@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>reveal.js</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/night.css">
+	<link rel="stylesheet" href="dist/custom.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="dist/highlight/panda-syntax-dark.min.css">
+	 <!-- <link rel="stylesheet" href="dist/highlight/dracula.css"> -->
+	<script src="plugin/leader-line.min.js"></script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<div style="height:700px;display:flex;flex-direction: column;justify-content: space-between;">
+					<div
+						style="background: url('img/fundo.png'); background-repeat: no-repeat; background-size: cover;width:100%;height:70%">
+						<div style="height:100%;display: flex;flex-direction: column; justify-content: space-between;">
+							<div
+								style="display:flex;flex-direction: row; justify-content: space-between;margin:30px 30px;">
+								<span style="font-size:24pt"></span>
+								<span style="font-size:24pt">Aula07</span>
+								<div style="
+										margin-top:40px;
+										width: 80%;
+										height: 230px;
+										position: absolute;
+										display: flex;
+										justify-content: space-between;">
+								</div>
+							</div>
+							<h3
+								style="font-size:40pt;margin: 0 30px; margin-bottom:60px; align-content: end; justify-self:flex-end">
+								Detecção de Objetos e Segmentação
+							</h3>
+						</div>
+					</div>
+					<div
+						style="
+						display:flex;
+						flex-direction:row;
+						margin-bottom:10px;
+						justify-content: space-between;
+						margin-inline:30px;
+						margin-bottom:43px;
+						">
+						<div style="text-align: left;font-size:24pt">
+							<p>Prof. Caio Hamamura</p>
+							<p>hamamura.caio@ifsp.edu.br</p>
+						</div>
+						<img src="img/Artboard 1 copy 2.png" alt="">
+					</div>
+				</div>
+			</section>
+			<section data-auto-animate>
+				<pre><code data-trim data-line-numbers data-id="hero1"> 
+					.hljs {
+					  display: block;
+					  overflow-x: auto;
+					  padding: 0.5em;
+					  background: #282a36;
+					}
+					
+					.hljs-built_in,
+					.hljs-selector-tag,
+					.hljs-section,
+					.hljs-link {
+					  color: #8be9fd;
+					}
+					</code></pre>
+
+			</section>
+ 
+			<section data-auto-animate >
+<pre><code data-trim data-line-numbers="1-2|3|4" data-id="hero1" data-fragment-index="1">
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #282a36;
+}
+
+.hljs-built_in,
+.hljs-selector-tag,
+.hljs-section,
+.hljs-link {
+  color: #8be9fd;
+}
+</code></pre>
+
+<p>
+When this fragment is shown, the first line of code (`span.line`) will have the `"focus"` class added to it. 
+</p>
+<p class="fragment" data-fragment-index="2">
+ Another fragment. This time, both lines will now have the `"focus"` class. 
+</p>
+
+			</section>
+			<section data-background="img/stardist.png">
+				<div style="background: rgba(0,0,0,0.8);">
+					<h3>Limitações da classificação</h3>
+					<div data-markdown>
+						<textarea data-template>
+							1. Apenas sabe qual objeto está na imagem
+							1. Se houver mais de um objeto no qual foi treinado apenas um deles será identificado
+						</textarea>
+					</div>
+				</div>
+			</section>
+
+
+			<section data-background="img/stardist.png">
+				<div style="background: rgba(0,0,0,0.9);width:fit-content">
+					<h2>Para quê detectar objetos</h2>
+				</div>
+				</textarea>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+							### 1. Posição dos objetos
+							![](img/pedestre.png)
+							Carro autônomo: detecção de pedestres
+							
+							---
+
+							### 2. Detecção de vários objetos diferentes
+							![](img/multi_detect.png)
+							
+							---
+
+							### 3. Contagem dos objetos na imagem
+							![](img/celulas.png)
+
+							---
+							
+							## Para quê segmentar os objetos?
+							![](img/segmentacao.png)
+
+				</textarea>
+			</section>
+			<section>
+				<span data-markdown>
+							### Segmentação semântica
+							![](img/segmentacao.png)
+
+							1. Identifica a qual classe cada pixel pertence sem
+							discriminar pertence a instâncias diferentes
+							1. Não permite saber quantos objetos existem daquela classe
+
+							
+				</span>
+				<div class="referencias" data-markdown>Exemplos: [DeepLabv3+ (CHEN, 2018)](https://arxiv.org/abs/1802.02611) e [SegFormer (XIE, 2018)](https://arxiv.org/abs/2105.15203) </div>
+				<div style="
+				display: block;
+				position: absolute;
+				height: 301px;
+				width: 327px;
+				background-color: #000c;
+				top: 100px;
+				z-index: 2;
+				"></div>
+				<div style="
+				display: block;
+				position: absolute;
+				height: 301px;
+				width: 327px;
+				background-color: #000c;
+				top: 100px;
+				right:2px;
+				z-index: 2;
+				"></div>
+				</textarea>
+			</section>
+
+			<section>
+				<span data-markdown=1>
+					### Segmentação de instância
+					![](img/segmentacao.png)					
+
+					1. Permite identificar objetos distintos
+				</span>
+				<div data-markdown="1" class="referencias">
+					Exemplos: [YOLOv8](https://yolov8.com/), [SAM (KIRILLOV, 2023)](https://arxiv.org/abs/2304.02643)
+				</div>
+				<div style="
+				display: block;
+				position: absolute;
+				height: 301px;
+				width: 634px;
+				background-color: #000c;
+				top: 100px;
+				z-index: 2;
+				"></div>
+				</textarea>
+			</section>
+			<section>
+				<div class="column">
+					<h3 style="margin: auto">Segmentação</h3>
+					<hr style="width:100%;">
+				<div class="row" style="justify-content: space-around;">
+				<div class="column" style="justify-content: space-between;min-width:500px">
+					<h4 style="text-align: center;">Semântica</h4>
+					<div data-markdown>
+					- Quantidade total de determinada classe
+					</div>
+					<p style="font-size:20pt">Exemplo: quantidade total de vegetação em um mapa</p>
+				</div>
+				<div class="column" style="justify-content: space-between">
+					<h4 style="text-align: center;">Instância</h4>
+					<div data-markdown>
+					- Quantidade e área de cada instância
+					</div>
+					<p style="font-size:20pt">Exemplo: na medicina para calcular tamanho de órgãos e comparação com normalidade</p>
+				</div>	
+				</div>
+		
+				</div>
+			</section>
+
+			<section data-markdown>
+				<textarea data-template>
+				## Segmentação: como funciona?
+				---
+				### Definir segmentos e objetos
+
+				 - [VGG Annotation Tool](https://www.robots.ox.ac.uk/~vgg/software/via/)
+				---
+				### Exemplos de cadernos
+
+				 - [Células (stardist)](https://colab.research.google.com/github/stardist/stardist/blob/master/extras/stardist_example_2D_colab.ipynb)
+				 - [Segmentação com YOLO](https://colab.research.google.com/drive/1T5ZPIgBCkqZUIDEv6L_mwpK0f8IceNtU#scrollTo=4JnkELT0cIJg)
+				 - [Treinando o YOLO](https://colab.research.google.com/drive/13frJeIgMftdx2Y9dStVsKZfamu9ErbuS#scrollTo=wXrL6OTr8xF6)
+				 - [Treinando o YOLO detecção de objetos](https://colab.research.google.com/drive/13frJeIgMftdx2Y9dStVsKZfamu9ErbuS#scrollTo=wXrL6OTr8xF6)
+
+				</textarea>
+			</section>
+		</div>
+	</div>
+
+
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script src="plugin/zoom/zoom.js"></script>
+
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+			theme: 'dracula',
+			transition: 'zoom',
+			backgroundTransition: 'zoom',
+			slideNumber: 'c/t',
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealNotes, RevealZoom, RevealHighlight],
+			// dependencies: [
+			// 	{ src: 'plugin/myhighlight/highlight.min.js' },
+			// 	{
+			// 		src: 'node_modules/reveal-code-focus/reveal-code-focus.js',
+			// 		async: true,
+			// 		callback: function () {
+			// 			RevealCodeFocus();
+			// 		}
+			// 	}
+			// ]
+		});
+		let line = null;
+
+		Reveal.on('fragmentshown', (event) => {
+			console.log(event);
+			if (event.fragment.id === 'start-highlight') {
+				if (line === null) {
+					line = new LeaderLine(
+						document.getElementById('start-highlight'),
+						document.getElementById('end-highlight'),
+						{
+							color: '#359830', path: 'arc',
+							hide: true,
+						}
+					);
+				}
+				line.show('draw', {
+					duration: 500,
+					timing: [0.58, 0, 0.42, 1],
+					loop: true
+				});
+
+				console.log(line);
+			}
+		});
+		Reveal.on('fragmenthidden', (event) => {
+			if (event.fragment.id === 'start-highlight') {
+				line.hide('draw');
+			}
+		});
+
+		Reveal.on('slidechanged', (event) => {
+			if (line !== null) {
+				line.remove();
+				line = null;
+			}
+		});
+
+
+	</script>
+</body>
+
+</html>

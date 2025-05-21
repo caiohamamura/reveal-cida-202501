@@ -1,0 +1,22 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      reveal-code-focus:
+        specifier: ^1.1.0
+        version: 1.1.0
+
+packages:
+
+  reveal-code-focus@1.1.0:
+    resolution: {integrity: sha512-c1O4CtVS7RLoYzgTMXsp+UQcpD/ZswoyQ2gyfkKpkkPa40KGlEZzXry+5ld4kwL7f9VZEedLoAOhuj5EsVkDpQ==}
+
+snapshots:
+
+  reveal-code-focus@1.1.0: {}

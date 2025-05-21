@@ -1,0 +1,40 @@
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.leader-line {
+    z-index: 999;
+}
+
+h1, h2, h3, h4, h5 {
+    text-align: left;
+}
+
+
+ol>li {
+    font-size: 26pt;
+    text-align: left;
+    margin: 5px 40px;
+}
+
+.line { 
+    display: block;
+    opacity: 0.3;
+    transition: opacity ease 0.5s;
+ }
+.line.focus { 
+    opacity: 1;
+ }
+
+
+.referencias {
+    font-size:large;text-align: right;
+}
