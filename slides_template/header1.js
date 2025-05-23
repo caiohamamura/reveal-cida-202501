@@ -1,5 +1,5 @@
 window.app.component("header1", {
-  props: ["aula", "titleSize"],
+  props: ["aula", "titleSize", "title"],
   setup() {
     const count = Vue.ref(0);
     const slots = Vue.useSlots().default?.();
@@ -56,7 +56,7 @@ window.app.component("header1", {
             "
             :style="{fontSize: (titleSize || 40) +  'pt'}"
           >
-            Detecção de Objetos e Segmentação
+            {{title}}
           </h3>
         </div>
     
