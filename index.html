@@ -311,13 +311,24 @@
         </section>
         
         <section>
-          1. Projetar os dados (vetores aleatórios)
+          <h2>1. Projetar os dados (vetores aleatórios)</h2>
           <img src="img/data_projection.png">
         </section>
 
         <section>
-          2. Fazer hiso
-          <img src="img/data_projection.png">
+          <h2>2. Fazer histograma</h2>
+          <img src="img/histograms.png">
+        </section>
+
+        <section>
+          <md md="
+          ## 3. Calcular score
+
+          - O score é baseado em qual classe do histograma o dado cai.
+          $$ S = \frac{K}{N} $$
+          - K: número de instancias na classe do histograma
+          - N: número total de 
+          "></md>
         </section>
 
       </section>
@@ -376,7 +387,7 @@
           "></md>
           <div class="row"> 
             <div>
-              <img src="img/oneclasssvm.png" alt="" height="400">
+              <img src="img/oneclasssvm.png" alt="" style="max-height:400px">
             </div>
             <div>
               <img src="img/isolationforest.png" alt="">
@@ -386,14 +397,10 @@
 
         <section>
           <h2>Prática</h2>
-          <p>
-            Vamos usar o pacote <code>pyod</code> para testar esses algoritmos
-            em dados reais.
+          <md md="
+          <https://colab.research.google.com/drive/1ENWmrwyS3MpM4x2q84AAXz5xzVYPVQJq#scrollTo=601902fb>
+          ">
           </p>
-          <ul>
-            <li>Instalação: <code>pip install pyod</code></li>
-            <li>Dataset: sensor, financeiro ou sintético</li>
-          </ul>
         </section>
 
         <section>
