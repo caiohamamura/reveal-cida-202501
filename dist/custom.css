@@ -19,6 +19,24 @@ h1, h2, h3, h4, h5 {
 }
 
 
+h2 {
+    font-size: 36pt !important;
+}
+
+h3 {
+    font-size: 32pt !important;
+}
+
+p, ul>li, ol>li {
+    font-size: 24pt;
+    text-align: left;
+}
+
+img {
+    font-size: 16pt
+}
+
+
 ol>li {
     font-size: 26pt;
     text-align: left;
