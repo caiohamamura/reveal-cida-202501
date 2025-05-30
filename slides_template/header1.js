@@ -1,5 +1,5 @@
 window.app.component("header1", {
-  props: ["aula", "titleSize", "title"],
+  props: ["aula", "disciplina", "titleSize", "title"],
   setup() {
     const count = Vue.ref(0);
     const slots = Vue.useSlots().default?.();
@@ -11,7 +11,7 @@ window.app.component("header1", {
         <div
         style="
           display: grid;
-          grid-template-rows: 70% 30%;
+          grid-template-rows: 75% 25%;
           height: 700px;
         "
       >
@@ -31,7 +31,7 @@ window.app.component("header1", {
               margin: 30px 30px 0 30px;
             "
           >
-            <span style="font-size: 24pt"></span>
+            <span style="font-size: 24pt">{{ disciplina }}</span>
             <span style="font-size: 24pt">Aula {{ aula }}</span>
           </div>
           <!-- Images middle -->
