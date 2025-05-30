@@ -4,7 +4,7 @@ window.app.component("ls-u", {
     // Initialize the list component
     this.$el.querySelectorAll("li").forEach((li) => {
       li.classList.add("fragment");
-      li.style.fontSize = this.fontSize || "16px";
+      li.style.fontSize = this.fontSize || "24pt";
     });
   },
   /*html*/
